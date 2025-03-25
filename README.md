@@ -2,6 +2,29 @@
 
 This repo will have a code of RubyScore Deposit Contracts.
 
+## Actual deployments
+### On mainnets
+| Chain    | Address                                    |
+|----------|--------------------------------------------|
+| Arbitrum | 0x7837371CB890D076E8Df558EabC9d78E112CC5ec |
+| Base     | 0xdb0F28c9F7d0f33B04D2a8ea24391A1527876D8B |
+| Linea    | 0xAF75cD51090E52Ca54Da17F40C06B5fC40b4445C |
+| Manta    | 0xc0b05c668a5576A39c12089Ff1Cbc86AbA6B073a |
+| Morph    | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |
+| Optimism | 0x9Dfd911486c3162195484f0B031fbb41617B2987 |
+| Scroll   | 0xAB4EE3E9A48057bCfB2fBc8872Dcf0273C115E49 |
+| Taiko    | 0x6eD14BbE16eBcfCA09762357530000Ba64a77372 |
+| zkEVM    | 0x972e5bA0072f5cd1E91f3e477Dc0fe74E04CD4B7 |
+| ZkSync   | 0x95048d754553CF74603D3888fc65149Ef9B22bE0 |
+| Zora     | 0x5D893D3Ba8910a3c31ab6B999B9b0E7bC35460BE |
+
+### On testnets
+| Chain    | Address                                    |
+|----------|--------------------------------------------|
+| Monad    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Reddio   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Soneium  | 0xbDB018e21AD1e5756853fe008793a474d329991b |
+
 ## Setting project
 
 ### Install dependencies
