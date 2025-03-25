@@ -2,6 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "solidity-docgen";
+import "@nomicfoundation/hardhat-foundry";
 
 import "tsconfig-paths/register";
 
@@ -38,6 +39,10 @@ const config: HardhatUserConfig = {
         enabled: true,
         runs: 200,
       },
+      metadata: {
+        bytecodeHash: "none",
+        useLiteralContent: true,
+      },
     },
   },
   typechain: {
@@ -45,10 +50,10 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      gasPrice: "auto",
+      gasPrice: 10000000,
       loggingEnabled: false,
       forking: {
-        url: `https://linea-mainnet.infura.io/v3/${INFURA_KEY}`,
+        url: `https://rpc-quicknode-holesky.morphl2.io`,
         enabled: true,
       },
     },
@@ -173,8 +178,51 @@ const config: HardhatUserConfig = {
       chainId: 80085,
       accounts: [DEPLOYER_KEY],
     },
+    morphMainnet: {
+      url: "https://rpc.morphl2.io",
+      chainId: 2818,
+      accounts: [DEPLOYER_KEY],
+      gasPrice: 2000000,
+    },
+    morphDevnet: {
+      url: "https://rpc.vnet.tenderly.co/devnet/morph-deposit/ead38c17-5a1b-4f36-b6dc-b6882775e72a",
+      chainId: 2819,
+      accounts: [DEPLOYER_KEY],
+      gasPrice: 1_000_000_000,
+    },
+    morphHoleskyDevnet: {
+      url: "https://rpc.vnet.tenderly.co/devnet/morph-holesky-deposit/f448fcf0-802d-423f-9b88-4a73b5ed5e09",
+      chainId: 2810,
+      accounts: [DEPLOYER_KEY],
+      gasPrice: 1_000_000_000,
+    },
+    morphHolesky: {
+      url: "https://rpc-quicknode-holesky.morphl2.io",
+      chainId: 2810,
+      accounts: [DEPLOYER_KEY],
+      gasPrice: 1_000_000_000,
+    },
+    monadTestnet: {
+      url: "https://testnet-rpc.monad.xyz",
+      chainId: 10143,
+      accounts: [DEPLOYER_KEY],
+    },
+    soneiumTestnet: {
+      url: "https://rpc.minato.soneium.org",
+      accounts: [DEPLOYER_KEY],
+    },
+    reddioTestnet: {
+      url: `https://reddio-dev.reddio.com/`,
+      accounts: [DEPLOYER_KEY],
+    },
+  },
+  sourcify: {
+    enabled: !process.env.USE_ETHERSCAN,
+    apiUrl: "https://sourcify-api-monad.blockvision.org",
+    browserUrl: "https://testnet.monadexplorer.com",
   },
   etherscan: {
+    enabled: !!process.env.USE_ETHERSCAN,
     apiKey: {
       mainnet: ETHERSCAN_API_KEY,
       goerli: ETHERSCAN_API_KEY,
@@ -198,6 +246,11 @@ const config: HardhatUserConfig = {
       mantaTestnet: MANTASCAN_API_KEY,
       taikoTestnet: TAIKOSCAN_API_KEY,
       berachainTestnet: BERACHAINSCAN_API_KEY,
+      reddioTestnet: "544d064a-35c1-4a35-b1de-97eee2eadcc1",
+      monadTestnet: "NO API KEY",
+      soneiumTestnet: "NO API KEY",
+      morphMainnet: "NO API KEY",
+      morphHolesky: "NO API KEY",
     },
     customChains: [
       {
@@ -328,6 +381,46 @@ const config: HardhatUserConfig = {
           browserURL: "https://artio.beratrail.io",
         },
         chainId: 80085,
+      },
+      {
+        network: "morphHolesky",
+        urls: {
+          apiURL: "https://explorer-api-holesky.morphl2.io/api? ",
+          browserURL: "https://explorer-holesky.morphl2.io",
+        },
+        chainId: 2810,
+      },
+      {
+        network: "morphMainnet",
+        urls: {
+          apiURL: "https://explorer-api.morphl2.io/api?",
+          browserURL: "https://explorer.morphl2.io/",
+        },
+        chainId: 2818,
+      },
+      {
+        network: "soneiumTestnet",
+        chainId: 1946,
+        urls: {
+          apiURL: "https://soneium-minato.blockscout.com/api",
+          browserURL: "https://soneium-minato.blockscout.com",
+        },
+      },
+      {
+        network: "reddioTestnet",
+        chainId: 50341,
+        urls: {
+          apiURL: "https://reddio-devnet.l2scan.co/api",
+          browserURL: "https://reddio-devnet.l2scan.co",
+        },
+      },
+      {
+        network: "monadTestnet",
+        chainId: 10143,
+        urls: {
+          apiURL: "https://sourcify-api-monad.blockvision.org",
+          browserURL: "https://testnet.monadexplorer.com",
+        },
       },
     ],
   },
