@@ -37,6 +37,7 @@
     "migrate:morphHoleskyDevnet": "hardhat deploy --network morphHoleskyDevnet",
     "migrate:morphHolesky": "hardhat deploy --network morphHolesky",
     "migrate:reddioTestnet": "hardhat deploy --network reddioTestnet",
+    "migrate:soneiumMainnet": "hardhat deploy --network soneiumMainnet",
     "migrate:soneiumTestnet": "hardhat deploy --network soneiumTestnet",
     "migrate:monadTestnet": "hardhat deploy --network monadTestnet",
     "migrate:megaEthTestnet": "hardhat deploy --network megaEthTestnet",
@@ -53,6 +54,7 @@
     "verify:morphMainnet": "hardhat verify-by-name --network morphMainnet --contracts Rubyscore_Deposit",
     "verify:morphHolesky": "hardhat verify-by-name --network morphHolesky --contracts Rubyscore_Deposit",
     "verify:reddioTestnet": "hardhat verify-by-name --network reddioTestnet --contracts Rubyscore_Deposit",
+    "verify:soneiumMainnet": "hardhat verify-by-name --network soneiumMainnet --contracts Rubyscore_Deposit",
     "verify:soneiumTestnet": "hardhat verify-by-name --network soneiumTestnet --contracts Rubyscore_Deposit",
     "verify:monadTestnet": "hardhat verify-by-name --network monadTestnet --contracts Rubyscore_Deposit",
     "verify": "hardhat verify-by-name --network bscTestnet --contracts"

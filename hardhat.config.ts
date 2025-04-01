@@ -207,6 +207,10 @@ const config: HardhatUserConfig = {
       chainId: 10143,
       accounts: [DEPLOYER_KEY],
     },
+    soneiumMainnet: {
+      url: "https://soneium.drpc.org",
+      accounts: [DEPLOYER_KEY],
+    },
     soneiumTestnet: {
       url: "https://rpc.minato.soneium.org",
       accounts: [DEPLOYER_KEY],
@@ -252,6 +256,7 @@ const config: HardhatUserConfig = {
       berachainTestnet: BERACHAINSCAN_API_KEY,
       reddioTestnet: "544d064a-35c1-4a35-b1de-97eee2eadcc1",
       monadTestnet: "NO API KEY",
+      soneiumMainnet: "NO API KEY",
       soneiumTestnet: "NO API KEY",
       morphMainnet: "NO API KEY",
       morphHolesky: "NO API KEY",
@@ -403,6 +408,14 @@ const config: HardhatUserConfig = {
         chainId: 2818,
       },
       {
+        network: "soneiumMainnet",
+        chainId: 1868,
+        urls: {
+          apiURL: "https://soneium.blockscout.com/api",
+          browserURL: "https://soneium.blockscout.com",
+        },
+      },
+      {
         network: "soneiumTestnet",
         chainId: 1946,
         urls: {
@@ -424,6 +437,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://sourcify-api-monad.blockvision.org",
           browserURL: "https://testnet.monadexplorer.com",
+        },
+      },
+      {
+        network: "somniaTestnet",
+        chainId: 50311,
+        urls: {
+          apiURL: "https://somnia-poc.w3us.site/api",
+          browserURL: "https://somnia-poc.w3us.site"
         },
       },
       {
