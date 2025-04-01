@@ -39,6 +39,7 @@
     "migrate:reddioTestnet": "hardhat deploy --network reddioTestnet",
     "migrate:soneiumTestnet": "hardhat deploy --network soneiumTestnet",
     "migrate:monadTestnet": "hardhat deploy --network monadTestnet",
+    "migrate:megaEthTestnet": "hardhat deploy --network megaEthTestnet",
     "verify:mainnet": "hardhat verify-by-name --network mainnet --contracts",
     "verify:goerli": "hardhat verify-by-name --network goerli --contracts",
     "verify:scrollSepolia": "hardhat verify-by-name --network scrollSepolia --contracts Rubyscore_Deposit",

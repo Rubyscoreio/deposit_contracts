@@ -215,6 +215,10 @@ const config: HardhatUserConfig = {
       url: `https://reddio-dev.reddio.com/`,
       accounts: [DEPLOYER_KEY],
     },
+    megaEthTestnet: {
+      url: `https://carrot.megaeth.com/rpc`,
+      accounts: [DEPLOYER_KEY],
+    },
   },
   sourcify: {
     enabled: !process.env.USE_ETHERSCAN,
@@ -420,6 +424,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://sourcify-api-monad.blockvision.org",
           browserURL: "https://testnet.monadexplorer.com",
+        },
+      },
+      {
+        network: "megaEthTestnet",
+        chainId: 6342,
+        urls: {
+          apiURL: "",
+          browserURL: "https://megaexplorer.xyz",
         },
       },
     ],
