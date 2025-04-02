@@ -24,6 +24,7 @@ This repo will have a code of RubyScore Deposit Contracts.
 |---------|--------------------------------------------|
 | Monad   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
 | Reddio  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Somnia  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
 | Soneium | 0xbDB018e21AD1e5756853fe008793a474d329991b |
 | MegaETH | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
 

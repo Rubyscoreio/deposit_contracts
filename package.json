@@ -40,6 +40,7 @@
     "migrate:soneiumMainnet": "hardhat deploy --network soneiumMainnet",
     "migrate:soneiumTestnet": "hardhat deploy --network soneiumTestnet",
     "migrate:monadTestnet": "hardhat deploy --network monadTestnet",
+    "migrate:somniaTestnet": "hardhat deploy --network somniaTestnet",
     "migrate:megaEthTestnet": "hardhat deploy --network megaEthTestnet",
     "verify:mainnet": "hardhat verify-by-name --network mainnet --contracts",
     "verify:goerli": "hardhat verify-by-name --network goerli --contracts",
@@ -57,6 +58,7 @@
     "verify:soneiumMainnet": "hardhat verify-by-name --network soneiumMainnet --contracts Rubyscore_Deposit",
     "verify:soneiumTestnet": "hardhat verify-by-name --network soneiumTestnet --contracts Rubyscore_Deposit",
     "verify:monadTestnet": "hardhat verify-by-name --network monadTestnet --contracts Rubyscore_Deposit",
+    "verify:somniaTestnet": "hardhat verify-by-name --network somniaTestnet --contracts Rubyscore_Deposit",
     "verify": "hardhat verify-by-name --network bscTestnet --contracts"
   },
   "devDependencies": {

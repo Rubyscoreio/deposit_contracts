@@ -219,6 +219,10 @@ const config: HardhatUserConfig = {
       url: `https://reddio-dev.reddio.com/`,
       accounts: [DEPLOYER_KEY],
     },
+    somniaTestnet: {
+      url: "https://rpc.ankr.com/somnia_testnet/6e3fd81558cf77b928b06b38e9409b4677b637118114e83364486294d5ff4811",
+      accounts: [DEPLOYER_KEY],
+    },
     megaEthTestnet: {
       url: `https://carrot.megaeth.com/rpc`,
       accounts: [DEPLOYER_KEY],
@@ -260,6 +264,7 @@ const config: HardhatUserConfig = {
       soneiumTestnet: "NO API KEY",
       morphMainnet: "NO API KEY",
       morphHolesky: "NO API KEY",
+      somniaTestnet: "empty",
     },
     customChains: [
       {
@@ -444,7 +449,7 @@ const config: HardhatUserConfig = {
         chainId: 50311,
         urls: {
           apiURL: "https://somnia-poc.w3us.site/api",
-          browserURL: "https://somnia-poc.w3us.site"
+          browserURL: "https://somnia-poc.w3us.site",
         },
       },
       {
