@@ -392,6 +392,19 @@ const networks = [
       browserURL: "https://megaexplorer.xyz",
     },
   },
+  {
+    name: "riseTestnet",
+    chainId: 11155931,
+    apiKey: "ANYTHING",
+    networkData: {
+      url: `https://testnet.riselabs.xyz/`,
+      accounts,
+    },
+    urls: {
+      apiURL: "https://explorer.testnet.riselabs.xyz/api",
+      browserURL: "https://explorer.testnet.riselabs.xyz/",
+    },
+  },
 ];
 
 export default networks;
