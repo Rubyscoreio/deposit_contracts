@@ -405,6 +405,19 @@ const networks = [
       browserURL: "https://explorer.testnet.riselabs.xyz/",
     },
   },
+  {
+    name: "bobaEthMainnet",
+    chainId: 288,
+    apiKey: "ANYTHING",
+    networkData: {
+      url: `https://mainnet.boba.network`,
+      accounts,
+    },
+    urls: {
+      apiURL: "https://api.routescan.io/v2/network/mainnet/evm/288/etherscan",
+      browserURL: "https://bobascan.com",
+    },
+  },
 ];
 
 export default networks;

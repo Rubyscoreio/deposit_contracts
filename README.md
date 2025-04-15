@@ -8,6 +8,7 @@ This repo will have a code of RubyScore Deposit Contracts.
 |----------|--------------------------------------------|
 | Arbitrum | 0x7837371CB890D076E8Df558EabC9d78E112CC5ec |
 | Base     | 0xdb0F28c9F7d0f33B04D2a8ea24391A1527876D8B |
+| Boba     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
 | Linea    | 0xAF75cD51090E52Ca54Da17F40C06B5fC40b4445C |
 | Manta    | 0xc0b05c668a5576A39c12089Ff1Cbc86AbA6B073a |
 | Morph    | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |
