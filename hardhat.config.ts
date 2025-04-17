@@ -2,29 +2,30 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "solidity-docgen";
+import "@nomicfoundation/hardhat-foundry";
 
 import "tsconfig-paths/register";
 
 import "./tasks/index";
 
-import envConfig from "./config";
+import networks from "./networks";
+import { ApiKey, ChainConfig } from "@nomicfoundation/hardhat-verify/types";
+import { NetworksUserConfig } from "hardhat/types";
 
-const {
-  DEPLOYER_KEY,
-  INFURA_KEY,
-  ETHERSCAN_API_KEY,
-  POLYGONSCAN_API_KEY,
-  POLYGONZKSCAN_API_KEY,
-  BSCSCAN_API_KEY,
-  BASESCAN_API_KEY,
-  LINEASCAN_API_KEY,
-  ZORASCAN_API_KEY,
-  OPTIMIZM_API_KEY,
-  SCROLLSCAN_API_KEY,
-  MANTASCAN_API_KEY,
-  TAIKOSCAN_API_KEY,
-  BERACHAINSCAN_API_KEY,
-} = envConfig;
+const externalNetworks: NetworksUserConfig = {};
+networks
+  .filter((network) => network.networkData)
+  .forEach((network) => {
+    externalNetworks[network.name] = {
+      chainId: network.chainId,
+      ...network.networkData,
+    };
+  });
+
+const apiKeys: ApiKey = {};
+networks.forEach((network) => {
+  apiKeys[network.name] = network.apiKey;
+});
 
 function typedNamedAccounts<T>(namedAccounts: { [key in string]: T }) {
   return namedAccounts;
@@ -38,6 +39,10 @@ const config: HardhatUserConfig = {
         enabled: true,
         runs: 200,
       },
+      metadata: {
+        bytecodeHash: "none",
+        useLiteralContent: true,
+      },
     },
   },
   typechain: {
@@ -45,291 +50,36 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      gasPrice: "auto",
+      gasPrice: 10000000,
       loggingEnabled: false,
       forking: {
-        url: `https://linea-mainnet.infura.io/v3/${INFURA_KEY}`,
+        url: `https://rpc-quicknode-holesky.morphl2.io`,
         enabled: true,
       },
     },
     localhost: {
       url: "http://127.0.0.1:8545",
     },
-    zkEVMMainnet: {
-      url: `https://zkevm-rpc.com`,
-      accounts: [DEPLOYER_KEY],
-    },
-    zkEVMTestnet: {
-      url: `https://rpc.public.zkevm-test.net`,
-      accounts: [DEPLOYER_KEY],
-    },
-    scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io",
-      accounts: [DEPLOYER_KEY],
-    },
-    scrollMainnet: {
-      url: "https://rpc.scroll.io/",
-      accounts: [DEPLOYER_KEY],
-      gasPrice: 424483200,
-    },
-    optimismMainnet: {
-      url: "https://mainnet.optimism.io",
-      accounts: [DEPLOYER_KEY],
-    },
-    optimismGoerli: {
-      url: "https://optimism-goerli.publicnode.com",
-      accounts: [DEPLOYER_KEY],
-    },
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
-      chainId: 1,
-      accounts: [DEPLOYER_KEY],
-    },
-    baseMainnet: {
-      url: "https://mainnet.base.org",
-      accounts: [DEPLOYER_KEY],
-    },
-    baseGoerli: {
-      url: "https://goerli.base.org",
-      accounts: [DEPLOYER_KEY],
-      gasPrice: 1000000000,
-    },
-    baseLocal: {
-      url: "http://localhost:8545",
-      accounts: [DEPLOYER_KEY],
-      gasPrice: 1000000000,
-    },
-    lineaTestnet: {
-      url: `https://rpc.goerli.linea.build/`,
-      accounts: [DEPLOYER_KEY],
-      chainId: 59140,
-      gasPrice: 1000000007,
-    },
-    lineaMainnet: {
-      url: `https://linea-mainnet.infura.io/v3/${INFURA_KEY}`,
-      accounts: [DEPLOYER_KEY],
-    },
-    zoraGoerli: {
-      url: "https://testnet.rpc.zora.energy/",
-      accounts: [DEPLOYER_KEY],
-      gasPrice: 2000000008,
-    },
-    zoraMainnet: {
-      url: "https://rpc.zora.energy/",
-      accounts: [DEPLOYER_KEY],
-    },
-    goerli: {
-      url: `https://goerli.infura.io/v3/${INFURA_KEY}`,
-      chainId: 5,
-      accounts: [DEPLOYER_KEY],
-    },
-    polygon: {
-      url: `https://polygon-mainnet.infura.io/v3/${INFURA_KEY}`,
-      chainId: 137,
-      accounts: [DEPLOYER_KEY],
-    },
-    polygonMumbai: {
-      url: `https://rpc-mumbai.maticvigil.com/`,
-      chainId: 80001,
-      accounts: [DEPLOYER_KEY],
-    },
-    bsc: {
-      url: "https://bsc-dataseed.binance.org/",
-      chainId: 56,
-      accounts: [DEPLOYER_KEY],
-    },
-    bscTestnet: {
-      url: "https://bsc-testnet.public.blastapi.io",
-      chainId: 97,
-      accounts: [DEPLOYER_KEY],
-    },
-    mantaMainnet: {
-      url: "https://pacific-rpc.manta.network/http",
-      chainId: 169,
-      accounts: [DEPLOYER_KEY],
-    },
-    mantaTestnet: {
-      url: "https://manta-testnet.calderachain.xyz/http",
-      chainId: 3441005,
-      accounts: [DEPLOYER_KEY],
-    },
-    mantleMainnet: {
-      url: "https://rpc.mantle.xyz",
-      chainId: 5000,
-      accounts: [DEPLOYER_KEY],
-    },
-    mantleTestnet: {
-      url: "https://rpc.sepolia.mantle.xyz",
-      chainId: 5003,
-      accounts: [DEPLOYER_KEY],
-    },
-    taikoTestnet: {
-      url: "https://rpc.katla.taiko.xyz",
-      chainId: 167008,
-      accounts: [DEPLOYER_KEY],
-    },
-    berachainTestnet: {
-      url: "https://artio.rpc.berachain.com/",
-      chainId: 80085,
-      accounts: [DEPLOYER_KEY],
-    },
+    ...externalNetworks,
+  },
+  sourcify: {
+    enabled: !process.env.USE_ETHERSCAN,
+    apiUrl: "https://sourcify-api-monad.blockvision.org",
+    browserUrl: "https://testnet.monadexplorer.com",
   },
   etherscan: {
-    apiKey: {
-      mainnet: ETHERSCAN_API_KEY,
-      goerli: ETHERSCAN_API_KEY,
-      polygon: POLYGONSCAN_API_KEY,
-      polygonMumbai: POLYGONSCAN_API_KEY,
-      zkEVMMainnet: POLYGONZKSCAN_API_KEY,
-      zkEVMTestnet: POLYGONZKSCAN_API_KEY,
-      scrollSepolia: SCROLLSCAN_API_KEY,
-      scrollMainnet: SCROLLSCAN_API_KEY,
-      bsc: BSCSCAN_API_KEY,
-      bscTestnet: BSCSCAN_API_KEY,
-      baseGoerli: BASESCAN_API_KEY,
-      baseMainnet: BASESCAN_API_KEY,
-      lineaTestnet: LINEASCAN_API_KEY,
-      lineaMainnet: LINEASCAN_API_KEY,
-      optimismGoerli: OPTIMIZM_API_KEY,
-      optimismMainnet: OPTIMIZM_API_KEY,
-      zoraGoerli: ZORASCAN_API_KEY,
-      zoraMainnet: ZORASCAN_API_KEY,
-      mantaMainnet: MANTASCAN_API_KEY,
-      mantaTestnet: MANTASCAN_API_KEY,
-      taikoTestnet: TAIKOSCAN_API_KEY,
-      berachainTestnet: BERACHAINSCAN_API_KEY,
-    },
-    customChains: [
-      {
-        network: "zkEVMMainnet",
-        chainId: 1101,
-        urls: {
-          apiURL: "https://explorer.mainnet.zkevm-test.net/api",
-          browserURL: "https://explorer.mainnet.zkevm-test.net/",
-        },
-      },
-      {
-        network: "zkEVMTestnet",
-        chainId: 1442,
-        urls: {
-          apiURL: "https://testnet-zkevm.polygonscan.com/api",
-          browserURL: "https://testnet-zkevm.polygonscan.com",
-        },
-      },
-      {
-        network: "scrollSepolia",
-        chainId: 534351,
-        urls: {
-          apiURL: "https://api-sepolia.scrollscan.com/api",
-          browserURL: "https://sepolia.scrollscan.com",
-        },
-      },
-      {
-        network: "scrollMainnet",
-        chainId: 534352,
-        urls: {
-          apiURL: "https://api.scrollscan.com/api",
-          browserURL: "https://scrollscan.com/",
-        },
-      },
-      {
-        network: "optimismMainnet",
-        chainId: 10,
-        urls: {
-          apiURL: "https://api-optimistic.etherscan.io/api",
-          browserURL: "https://explorer.optimism.io",
-        },
-      },
-      {
-        network: "optimismGoerli",
-        chainId: 420,
-        urls: {
-          apiURL: "https://api-goerli-optimistic.etherscan.io/",
-          browserURL: "https://goerli-explorer.optimism.io",
-        },
-      },
-
-      {
-        network: "baseGoerli",
-        chainId: 84531,
-        urls: {
-          apiURL: "https://api-goerli.basescan.org/api",
-          browserURL: "https://goerli.basescan.org",
-        },
-      },
-      {
-        network: "baseMainnet",
-        chainId: 8453,
-        urls: {
-          apiURL: "https://api.basescan.org/api",
-          browserURL: "https://basescan.org",
-        },
-      },
-      {
-        network: "lineaMainnet",
-        chainId: 59144,
-        urls: {
-          apiURL: "https://api.lineascan.build/api",
-          browserURL: "https://lineascan.build/",
-        },
-      },
-      {
-        network: "lineaTestnet",
-        chainId: 59140,
-        urls: {
-          apiURL: "https://api-testnet.lineascan.build/api",
-          browserURL: "https://goerli.lineascan.build/address",
-        },
-      },
-      {
-        network: "zoraGoerli",
-        chainId: 999,
-        urls: {
-          apiURL: "https://testnet.explorer.zora.energy/api",
-          browserURL: "https://testnet.explorer.zora.energy",
-        },
-      },
-      {
-        network: "zoraMainnet",
-        chainId: 7777777,
-        urls: {
-          apiURL: "https://explorer.zora.energy/api",
-          browserURL: "https://explorer.zora.energy",
-        },
-      },
-      {
-        network: "mantaMainnet",
-        urls: {
-          apiURL: "https://pacific-explorer.manta.network/api",
-          browserURL: "https://pacific-explorer.manta.network",
-        },
-        chainId: 169,
-      },
-      {
-        network: "mantaTestnet",
-        urls: {
-          apiURL: "https://pacific-explorer.testnet.manta.network/api",
-          browserURL: "https://pacific-explorer.testnet.manta.network",
-        },
-        chainId: 3441005,
-      },
-      {
-        network: "taikoTestnet",
-        urls: {
-          apiURL: "https://blockscoutapi.katla.taiko.xyz/api",
-          browserURL: "https://blockscoutapi.katla.taiko.xyz/",
-        },
-        chainId: 167008,
-      },
-      {
-        network: "berachainTestnet",
-        urls: {
-          apiURL: "https://api.routescan.io/v2/network/testnet/evm/80085/etherscan",
-          browserURL: "https://artio.beratrail.io",
-        },
-        chainId: 80085,
-      },
-    ],
+    enabled: !!process.env.USE_ETHERSCAN,
+    apiKey: apiKeys,
+    customChains: networks
+      .filter((network) => network.urls)
+      .map(
+        (network) =>
+          ({
+            network: network.name,
+            chainId: network.chainId,
+            urls: network.urls,
+          }) as ChainConfig,
+      ),
   },
   namedAccounts: typedNamedAccounts({
     deployer: 0,

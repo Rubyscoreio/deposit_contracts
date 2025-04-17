@@ -19,6 +19,7 @@ interface ENV {
   MANTLESCAN_API_KEY: string | undefined;
   TAIKOSCAN_API_KEY: string | undefined;
   BERACHAINSCAN_API_KEY: string | undefined;
+  REDDIO_API_KEY: string | undefined;
 }
 interface Config {
   DEPLOYER_KEY: string;
@@ -36,6 +37,7 @@ interface Config {
   MANTLESCAN_API_KEY: string;
   TAIKOSCAN_API_KEY: string;
   BERACHAINSCAN_API_KEY: string;
+  REDDIO_API_KEY: string;
 }
 
 const getConfig = (): ENV => {
@@ -55,6 +57,7 @@ const getConfig = (): ENV => {
     MANTLESCAN_API_KEY: process.env.MANTLESCAN_API_KEY,
     TAIKOSCAN_API_KEY: process.env.TAIKOSCAN_API_KEY,
     BERACHAINSCAN_API_KEY: process.env.TAIKOSCAN_API_KEY,
+    REDDIO_API_KEY: process.env.REDDIO_API_KEY,
   };
 };
 
