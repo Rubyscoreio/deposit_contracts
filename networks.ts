@@ -368,7 +368,7 @@ const networks = [
   },
   {
     name: "somniaTestnet",
-    chainId: 50311,
+    chainId: 50312,
     apiKey: "ANYTHING",
     networkData: {
       url: `https://rpc.ankr.com/somnia_testnet/6e3fd81558cf77b928b06b38e9409b4677b637118114e83364486294d5ff4811`,
@@ -416,6 +416,19 @@ const networks = [
     urls: {
       apiURL: "https://api.routescan.io/v2/network/mainnet/evm/288/etherscan",
       browserURL: "https://bobascan.com",
+    },
+  },
+  {
+    name: "basecampTestnet",
+    chainId: 123420001114,
+    apiKey: "ANYTHING",
+    networkData: {
+      url: `https://rpc.basecamp.t.raas.gelato.cloud`,
+      accounts,
+    },
+    urls: {
+      apiURL: "https://basecamp.cloud.blockscout.com/api",
+      browserURL: "https://basecamp.cloud.blockscout.com",
     },
   },
 ];
