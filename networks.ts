@@ -418,6 +418,19 @@ const networks = [
       browserURL: "https://bobascan.com",
     },
   },
+  {
+    name: "basecampTestnet",
+    chainId: 123420001114,
+    apiKey: "ANYTHING",
+    networkData: {
+      url: `https://rpc.basecamp.t.raas.gelato.cloud`,
+      accounts,
+    },
+    urls: {
+      apiURL: "https://basecamp.cloud.blockscout.com/api",
+      browserURL: "https://basecamp.cloud.blockscout.com",
+    },
+  },
 ];
 
 export default networks;
