@@ -21,15 +21,16 @@ This repo will have a code of RubyScore Deposit Contracts.
 | Zora     | 0x5D893D3Ba8910a3c31ab6B999B9b0E7bC35460BE |
 
 ### On testnets
-| Chain           | Address                                    |
-|-----------------|--------------------------------------------|
-| Monad           | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-| Reddio          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-| Somnia          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-| Soneium         | 0xbDB018e21AD1e5756853fe008793a474d329991b |
-| MegaETH         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-| Rise            | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-| basecampTestnet | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Chain    | Address                                    |
+|----------|--------------------------------------------|
+| Monad    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Reddio   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Somnia   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Soneium  | 0xbDB018e21AD1e5756853fe008793a474d329991b |
+| MegaETH  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Rise     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Basecamp | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Sahara   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
 
 ## Setting project
 

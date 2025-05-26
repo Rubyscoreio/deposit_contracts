@@ -431,6 +431,19 @@ const networks = [
       browserURL: "https://basecamp.cloud.blockscout.com",
     },
   },
+  {
+    name: "saharaTestnet",
+    chainId: 313313,
+    apiKey: "ANYTHING",
+    networkData: {
+      url: `https://testnet.saharalabs.ai`,
+      accounts,
+    },
+    urls: {
+      apiURL: "https://testnet-explorer.saharalabs.ai/api",
+      browserURL: "https://testnet-explorer.saharalabs.ai",
+    },
+  },
 ];
 
 export default networks;
